@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Song {
+public protocol Song {
     var identifier: String { get }
     var title: String { get }
     var artist: String? { get }

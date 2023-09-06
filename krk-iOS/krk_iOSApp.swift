@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import krk_common
 
 @main
 struct krk_iOSApp: App {

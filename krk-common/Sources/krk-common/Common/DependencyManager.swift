@@ -7,13 +7,13 @@
 
 import Foundation
 
-class DependencyManager {
+public class DependencyManager {
     private static var _shared: DependencyManager!
-    static func setup(environment: Environment) {
+    public static func setup(environment: Environment) {
         _shared = DependencyManager(environment: environment)
     }
     
-    static var shared: DependencyManager {
+    public static var shared: DependencyManager {
         _shared
     }
     
@@ -23,19 +23,19 @@ class DependencyManager {
     
     private let environment: Environment
     
-    lazy var encoder: JSONEncoder = {
+    public lazy var encoder: JSONEncoder = {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         return encoder
     }()
     
-    lazy var decoder: JSONDecoder = {
+    public lazy var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         return decoder
     }()
     
-    lazy var netServiceBrowser: NetServiceBrowser = NetServiceBrowser()
+    public lazy var netServiceBrowser: NetServiceBrowser = NetServiceBrowser()
     
     lazy var apiManager: APIManager = {
         var apiManager = DefaultAPIManager(encoder: encoder, decoder: decoder)
@@ -57,14 +57,14 @@ class DependencyManager {
         }
     }()
     
-    lazy var getSongsUseCase: GetSongsUseCase = DefaultGetSongsUseCase(repository: karaokeRepository)
-    lazy var reserveSongUseCase: ReserveSongUseCase = DefaultReserveSongUseCase(repository: karaokeRepository)
-    lazy var getReservedSongsUseCase: GetReservedSongsUseCase = DefaultGetReservedSongsUseCase(repository: karaokeRepository)
-    lazy var cancelReservedSongUseCase: CancelReservedSongUseCase = DefaultCancelReservedSongUseCase(repository: karaokeRepository)
-    lazy var stopCurrentlyPlayingUseCase: StopCurrentlyPlayingUseCase = DefaultStopCurrentlyPlayingUseCase(repository: karaokeRepository)
+    public lazy var getSongsUseCase: GetSongsUseCase = DefaultGetSongsUseCase(repository: karaokeRepository)
+    public lazy var reserveSongUseCase: ReserveSongUseCase = DefaultReserveSongUseCase(repository: karaokeRepository)
+    public lazy var getReservedSongsUseCase: GetReservedSongsUseCase = DefaultGetReservedSongsUseCase(repository: karaokeRepository)
+    public lazy var cancelReservedSongUseCase: CancelReservedSongUseCase = DefaultCancelReservedSongUseCase(repository: karaokeRepository)
+    public lazy var stopCurrentlyPlayingUseCase: StopCurrentlyPlayingUseCase = DefaultStopCurrentlyPlayingUseCase(repository: karaokeRepository)
     
     // MARK: - Declarations
-    enum Environment {
+    public enum Environment {
         case preview
         case app
     }

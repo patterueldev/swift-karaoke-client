@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import krk_common
 
-struct SongListView: View, ScanServerDelegate {
+struct SongListView: View {
     @ObservedObject var viewModel: SongListViewModel
     
     init() {
@@ -86,9 +87,7 @@ struct SongListView: View, ScanServerDelegate {
         .onSubmit(of: .search) { viewModel.loadSongs() }
         .onAppear() {
             viewModel.setup()
-        }.sheet(isPresented: $viewModel.showsConnectToServer, content: {
-            ScanServerView(delegate: self)
-        }).sheet(isPresented: $viewModel.showsReservedSongList, content: {
+        }.sheet(isPresented: $viewModel.showsReservedSongList, content: {
             ReservedSongListView()
         })
     }

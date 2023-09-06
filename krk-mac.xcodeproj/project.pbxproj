@@ -34,6 +34,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		432D2D242AA8683E00B999FC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		43622F642AA8626400DF35DE = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +60,7 @@
 		43622F6F2AA8626400DF35DE /* krk-mac */ = {
 			isa = PBXGroup;
 			children = (
+				432D2D242AA8683E00B999FC /* Presentation */,
 				43622F702AA8626400DF35DE /* krk_macApp.swift */,
 				43622F722AA8626400DF35DE /* ContentView.swift */,
 				43622F742AA8626600DF35DE /* Assets.xcassets */,

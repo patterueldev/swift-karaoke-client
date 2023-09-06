@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CancelReservedSongUseCase {
+public protocol CancelReservedSongUseCase {
     func execute(song: ReservedSong) async throws
 }
 

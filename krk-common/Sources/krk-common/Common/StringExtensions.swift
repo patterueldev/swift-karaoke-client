@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     func asURL() -> URL? {
         URL(string: self)
     }

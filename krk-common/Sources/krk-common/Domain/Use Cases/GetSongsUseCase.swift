@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GetSongsUseCase {
+public protocol GetSongsUseCase {
     func execute(limit: Int?, offset: Int?, filter: String?) async throws -> [Song]
 }
 

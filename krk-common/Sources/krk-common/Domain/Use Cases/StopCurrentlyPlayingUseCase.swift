@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol StopCurrentlyPlayingUseCase {
+public protocol StopCurrentlyPlayingUseCase {
     func execute() async throws
 }
 

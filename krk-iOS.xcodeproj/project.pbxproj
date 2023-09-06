@@ -7,44 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4338DA182AA474CB00F8089F /* ScanServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA172AA474CB00F8089F /* ScanServerView.swift */; };
-		4338DA1A2AA4758000F8089F /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA192AA4758000F8089F /* QRScannerController.swift */; };
-		4338DA1E2AA47E5000F8089F /* ScanServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA1D2AA47E5000F8089F /* ScanServerViewModel.swift */; };
 		4338DA212AA4C67600F8089F /* ReservedSongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA202AA4C67600F8089F /* ReservedSongListView.swift */; };
 		4338DA232AA4C68700F8089F /* ReservedSongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA222AA4C68700F8089F /* ReservedSongListViewModel.swift */; };
-		4338DA252AA4C6BD00F8089F /* GetReservedSongsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA242AA4C6BD00F8089F /* GetReservedSongsUseCase.swift */; };
-		4338DA272AA4C6D500F8089F /* ReservedSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA262AA4C6D500F8089F /* ReservedSong.swift */; };
-		4338DA292AA4C6FD00F8089F /* RestReservedSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4338DA282AA4C6FD00F8089F /* RestReservedSong.swift */; };
 		435653BD2AA1A57800068353 /* krk_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653BC2AA1A57800068353 /* krk_iOSApp.swift */; };
 		435653BF2AA1A57800068353 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653BE2AA1A57800068353 /* ContentView.swift */; };
 		435653C12AA1A57B00068353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435653C02AA1A57B00068353 /* Assets.xcassets */; };
 		435653C42AA1A57B00068353 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435653C32AA1A57B00068353 /* Preview Assets.xcassets */; };
 		435653CC2AA1A6E700068353 /* SongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653CB2AA1A6E700068353 /* SongListView.swift */; };
 		435653CE2AA1A6F500068353 /* SongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653CD2AA1A6F500068353 /* SongListViewModel.swift */; };
-		435653D32AA1A74500068353 /* GetSongsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653D22AA1A74500068353 /* GetSongsUseCase.swift */; };
-		435653D72AA1A7EE00068353 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653D62AA1A7EE00068353 /* Song.swift */; };
-		435653DA2AA1A8C200068353 /* KaraokeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653D92AA1A8C200068353 /* KaraokeRepository.swift */; };
-		435653DD2AA1AC0200068353 /* DemoKaraokeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653DC2AA1AC0200068353 /* DemoKaraokeDataSource.swift */; };
-		435653E02AA1AE2600068353 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653DF2AA1AE2600068353 /* APIManager.swift */; };
-		435F9FE32AA5B20500624122 /* CancelReservedSongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435F9FE22AA5B20500624122 /* CancelReservedSongUseCase.swift */; };
-		435F9FE72AA5CD5400624122 /* StopCurrentlyPlayingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435F9FE62AA5CD5400624122 /* StopCurrentlyPlayingUseCase.swift */; };
 		43622F8C2AA8641800DF35DE /* krk-common in Frameworks */ = {isa = PBXBuildFile; productRef = 43622F8B2AA8641800DF35DE /* krk-common */; };
-		437E700B2AA1CCD6000BA276 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E700A2AA1CCD6000BA276 /* DependencyManager.swift */; };
-		43A3BF282AA42D4D00E2B6E9 /* RestKaraokeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BF272AA42D4D00E2B6E9 /* RestKaraokeDataSource.swift */; };
-		43A3BF2B2AA42DC800E2B6E9 /* RestSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BF2A2AA42DC700E2B6E9 /* RestSong.swift */; };
-		43A3BF2D2AA4309900E2B6E9 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BF2C2AA4309900E2B6E9 /* StringExtensions.swift */; };
-		43A3BF2F2AA4353A00E2B6E9 /* ReserveSongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3BF2E2AA4353A00E2B6E9 /* ReserveSongUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4338DA172AA474CB00F8089F /* ScanServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanServerView.swift; sourceTree = "<group>"; };
-		4338DA192AA4758000F8089F /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
-		4338DA1D2AA47E5000F8089F /* ScanServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanServerViewModel.swift; sourceTree = "<group>"; };
 		4338DA202AA4C67600F8089F /* ReservedSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedSongListView.swift; sourceTree = "<group>"; };
 		4338DA222AA4C68700F8089F /* ReservedSongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedSongListViewModel.swift; sourceTree = "<group>"; };
-		4338DA242AA4C6BD00F8089F /* GetReservedSongsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetReservedSongsUseCase.swift; sourceTree = "<group>"; };
-		4338DA262AA4C6D500F8089F /* ReservedSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedSong.swift; sourceTree = "<group>"; };
-		4338DA282AA4C6FD00F8089F /* RestReservedSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestReservedSong.swift; sourceTree = "<group>"; };
 		435653B92AA1A57800068353 /* krk-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "krk-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		435653BC2AA1A57800068353 /* krk_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = krk_iOSApp.swift; sourceTree = "<group>"; };
 		435653BE2AA1A57800068353 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,18 +28,6 @@
 		435653C32AA1A57B00068353 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		435653CB2AA1A6E700068353 /* SongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListView.swift; sourceTree = "<group>"; };
 		435653CD2AA1A6F500068353 /* SongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewModel.swift; sourceTree = "<group>"; };
-		435653D22AA1A74500068353 /* GetSongsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSongsUseCase.swift; sourceTree = "<group>"; };
-		435653D62AA1A7EE00068353 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		435653D92AA1A8C200068353 /* KaraokeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaraokeRepository.swift; sourceTree = "<group>"; };
-		435653DC2AA1AC0200068353 /* DemoKaraokeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKaraokeDataSource.swift; sourceTree = "<group>"; };
-		435653DF2AA1AE2600068353 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		435F9FE22AA5B20500624122 /* CancelReservedSongUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReservedSongUseCase.swift; sourceTree = "<group>"; };
-		435F9FE62AA5CD5400624122 /* StopCurrentlyPlayingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopCurrentlyPlayingUseCase.swift; sourceTree = "<group>"; };
-		437E700A2AA1CCD6000BA276 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
-		43A3BF272AA42D4D00E2B6E9 /* RestKaraokeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestKaraokeDataSource.swift; sourceTree = "<group>"; };
-		43A3BF2A2AA42DC700E2B6E9 /* RestSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSong.swift; sourceTree = "<group>"; };
-		43A3BF2C2AA4309900E2B6E9 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		43A3BF2E2AA4353A00E2B6E9 /* ReserveSongUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveSongUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,24 +42,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4338DA152AA4746500F8089F /* Application */ = {
+		432D2D1F2AA8655E00B999FC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		4338DA152AA4746500F8089F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				4338DA1F2AA4C65B00F8089F /* Reserved Songs */,
-				4338DA162AA4747900F8089F /* Scan Server */,
 				435653CA2AA1A6D200068353 /* Songs */,
 			);
-			path = Application;
-			sourceTree = "<group>";
-		};
-		4338DA162AA4747900F8089F /* Scan Server */ = {
-			isa = PBXGroup;
-			children = (
-				4338DA172AA474CB00F8089F /* ScanServerView.swift */,
-				4338DA1D2AA47E5000F8089F /* ScanServerViewModel.swift */,
-				4338DA192AA4758000F8089F /* QRScannerController.swift */,
-			);
-			path = "Scan Server";
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		4338DA1F2AA4C65B00F8089F /* Reserved Songs */ = {
@@ -126,10 +86,8 @@
 		435653BB2AA1A57800068353 /* krk-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				435653DE2AA1ACF200068353 /* Common */,
-				435653D42AA1A7CE00068353 /* Data */,
-				435653D02AA1A72A00068353 /* Domain */,
-				4338DA152AA4746500F8089F /* Application */,
+				432D2D1F2AA8655E00B999FC /* Common */,
+				4338DA152AA4746500F8089F /* Presentation */,
 				435653BC2AA1A57800068353 /* krk_iOSApp.swift */,
 				435653BE2AA1A57800068353 /* ContentView.swift */,
 				435653C02AA1A57B00068353 /* Assets.xcassets */,
@@ -153,82 +111,6 @@
 				435653CD2AA1A6F500068353 /* SongListViewModel.swift */,
 			);
 			path = Songs;
-			sourceTree = "<group>";
-		};
-		435653D02AA1A72A00068353 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				435653D52AA1A7D300068353 /* Entities */,
-				435653D12AA1A73300068353 /* Use Cases */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		435653D12AA1A73300068353 /* Use Cases */ = {
-			isa = PBXGroup;
-			children = (
-				435653D22AA1A74500068353 /* GetSongsUseCase.swift */,
-				4338DA242AA4C6BD00F8089F /* GetReservedSongsUseCase.swift */,
-				43A3BF2E2AA4353A00E2B6E9 /* ReserveSongUseCase.swift */,
-				435F9FE22AA5B20500624122 /* CancelReservedSongUseCase.swift */,
-				435F9FE62AA5CD5400624122 /* StopCurrentlyPlayingUseCase.swift */,
-			);
-			path = "Use Cases";
-			sourceTree = "<group>";
-		};
-		435653D42AA1A7CE00068353 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				435653DB2AA1ABF700068353 /* Data Sources */,
-				435653D82AA1A86300068353 /* Repositories */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		435653D52AA1A7D300068353 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				43A3BF292AA42D9700E2B6E9 /* Rest */,
-				435653D62AA1A7EE00068353 /* Song.swift */,
-				4338DA262AA4C6D500F8089F /* ReservedSong.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		435653D82AA1A86300068353 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				435653D92AA1A8C200068353 /* KaraokeRepository.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		435653DB2AA1ABF700068353 /* Data Sources */ = {
-			isa = PBXGroup;
-			children = (
-				435653DC2AA1AC0200068353 /* DemoKaraokeDataSource.swift */,
-				43A3BF272AA42D4D00E2B6E9 /* RestKaraokeDataSource.swift */,
-			);
-			path = "Data Sources";
-			sourceTree = "<group>";
-		};
-		435653DE2AA1ACF200068353 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				435653DF2AA1AE2600068353 /* APIManager.swift */,
-				437E700A2AA1CCD6000BA276 /* DependencyManager.swift */,
-				43A3BF2C2AA4309900E2B6E9 /* StringExtensions.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		43A3BF292AA42D9700E2B6E9 /* Rest */ = {
-			isa = PBXGroup;
-			children = (
-				43A3BF2A2AA42DC700E2B6E9 /* RestSong.swift */,
-				4338DA282AA4C6FD00F8089F /* RestReservedSong.swift */,
-			);
-			path = Rest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,29 +189,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				435653DA2AA1A8C200068353 /* KaraokeRepository.swift in Sources */,
-				435653D72AA1A7EE00068353 /* Song.swift in Sources */,
-				437E700B2AA1CCD6000BA276 /* DependencyManager.swift in Sources */,
-				4338DA182AA474CB00F8089F /* ScanServerView.swift in Sources */,
 				435653BF2AA1A57800068353 /* ContentView.swift in Sources */,
-				435F9FE72AA5CD5400624122 /* StopCurrentlyPlayingUseCase.swift in Sources */,
 				4338DA232AA4C68700F8089F /* ReservedSongListViewModel.swift in Sources */,
-				4338DA1A2AA4758000F8089F /* QRScannerController.swift in Sources */,
-				435653E02AA1AE2600068353 /* APIManager.swift in Sources */,
 				435653CE2AA1A6F500068353 /* SongListViewModel.swift in Sources */,
-				43A3BF2B2AA42DC800E2B6E9 /* RestSong.swift in Sources */,
-				4338DA1E2AA47E5000F8089F /* ScanServerViewModel.swift in Sources */,
-				4338DA252AA4C6BD00F8089F /* GetReservedSongsUseCase.swift in Sources */,
-				435F9FE32AA5B20500624122 /* CancelReservedSongUseCase.swift in Sources */,
-				43A3BF282AA42D4D00E2B6E9 /* RestKaraokeDataSource.swift in Sources */,
-				435653DD2AA1AC0200068353 /* DemoKaraokeDataSource.swift in Sources */,
-				43A3BF2F2AA4353A00E2B6E9 /* ReserveSongUseCase.swift in Sources */,
-				435653D32AA1A74500068353 /* GetSongsUseCase.swift in Sources */,
 				435653CC2AA1A6E700068353 /* SongListView.swift in Sources */,
 				4338DA212AA4C67600F8089F /* ReservedSongListView.swift in Sources */,
-				43A3BF2D2AA4309900E2B6E9 /* StringExtensions.swift in Sources */,
-				4338DA272AA4C6D500F8089F /* ReservedSong.swift in Sources */,
-				4338DA292AA4C6FD00F8089F /* RestReservedSong.swift in Sources */,
 				435653BD2AA1A57800068353 /* krk_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

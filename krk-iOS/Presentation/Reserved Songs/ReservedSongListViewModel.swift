@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import krk_common
 
 class ReservedSongListViewModel: ObservableObject {
     private let getReservedSongs: GetReservedSongsUseCase

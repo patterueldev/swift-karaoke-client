@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
+import krk_common
 
 class SongListViewModel: ObservableObject {
-    private let apiManager: APIManager
     private let getSongs: GetSongsUseCase
     private let reserveSongs: ReserveSongUseCase
     
     init() {
         let dependencyManager = DependencyManager.shared
-        self.apiManager = dependencyManager.apiManager
         self.getSongs = dependencyManager.getSongsUseCase
         self.reserveSongs = dependencyManager.reserveSongUseCase
     }
@@ -30,11 +29,12 @@ class SongListViewModel: ObservableObject {
         Task {
             do {
                 // check if API manager is setup properly
-                let isSetup = try await apiManager.checkIfServerIsSetup()
-                await MainActor.run {
-                    self.showsConnectToServer = !isSetup
-                    if isSetup { self.loadSongs() }
-                }
+                self.loadSongs()
+//                let isSetup = try await apiManager.checkIfServerIsSetup()
+//                await MainActor.run {
+//                    self.showsConnectToServer = !isSetup
+//                    if isSetup { self.loadSongs() }
+//                }
             } catch {
                 print(error.localizedDescription)
                 await MainActor.run {

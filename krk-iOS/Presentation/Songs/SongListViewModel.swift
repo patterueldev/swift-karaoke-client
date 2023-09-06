@@ -63,7 +63,9 @@ class SongListViewModel: ObservableObject {
     
     func runSearch() {
         searchTimer?.invalidate()
-        searchTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false, block: { _ in
+        let isEmpty = searchText.isEmpty
+        let interval: TimeInterval = isEmpty ? 0 : 0.25
+        searchTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: false, block: { _ in
             self.loadSongs()
         })
     }

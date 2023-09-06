@@ -84,6 +84,9 @@ struct SongListView: View {
         }
         .background(Color.indigo) // Set the background color of the bottom bar
         .searchable(text: $viewModel.searchText, prompt: "Search for Title, Artist")
+        .onChange(of: viewModel.searchText) { _ in
+            viewModel.runSearch()
+        }
         .onSubmit(of: .search) { viewModel.loadSongs() }
         .onAppear() {
             viewModel.setup()

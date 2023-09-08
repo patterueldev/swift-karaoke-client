@@ -70,7 +70,7 @@ public class DependencyManager {
     lazy var socketRepository: SocketRepository = {
         switch environment {
         case .preview:
-            return RestSocketDataSource(clientType: clientType, socketManager: socketManager)
+            return DemoSocketDataSource(karaokeRepository: karaokeRepository)
         case .app:
             return RestSocketDataSource(clientType: clientType, socketManager: socketManager)
         }

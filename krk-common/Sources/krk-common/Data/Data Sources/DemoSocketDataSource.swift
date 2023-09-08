@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+class DemoSocketDataSource: SocketRepository {
+    let karaokeRepository: KaraokeRepository
+    init(karaokeRepository: KaraokeRepository) {
+        self.karaokeRepository = karaokeRepository
+    }
+    
+    func observeReservedSongs() -> AsyncStream<[ReservedSong]> {
+        return AsyncStream { continuation in
+            Task {
+                let reserved = try await karaokeRepository.getReservedSongs()
+                continuation.yield(reserved)
+            }
+        }
+    }
+}

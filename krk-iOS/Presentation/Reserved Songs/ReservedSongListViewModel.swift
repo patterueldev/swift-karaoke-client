@@ -25,6 +25,7 @@ class ReservedSongListViewModel: ObservableObject {
     }
     
     @Published var songs: [ReservedSongWrapper] = []
+    @Published var showsSongBook: Bool = false
     
     func startObserver() {
         Task {
@@ -52,11 +53,7 @@ class ReservedSongListViewModel: ObservableObject {
     func stopCurrent() {
         Task {
             do {
-//                try await stopCurrentSong.execute()
                 self.triggerServerEventUseCase.emit(event: .ControllerSongStopped, data: [])
-//                await MainActor.run {
-//                    self.loadSongs()
-//                }
             }
         }
     }

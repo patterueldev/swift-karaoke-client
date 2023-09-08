@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import krk_common
 
 struct ReservedSongListView: View {
     @ObservedObject var viewModel: ReservedSongListViewModel
@@ -17,69 +18,87 @@ struct ReservedSongListView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                List(viewModel.songs) { (song: ReservedSongListViewModel.ReservedSongWrapper) in
-                    HStack {
-                        AsyncImage(url: song.reservedSong.song.image?.asURL()) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill) // Added aspect ratio modifier
-                                .frame(width: 50, height: 50)
-                                .clipped() // Added clipped modifier to ensure the image doesn't exceed the frame
-                        } placeholder: {
-                            // Placeholder view with music symbol
-                            Image(systemName: "music.note")
-                                .font(.system(size: 20))
-                                .foregroundColor(.gray)
-                                .frame(width: 50, height: 50)
-                        }
-                        .background(Color.gray.opacity(0.5))
-                        
-                        VStack(alignment: .leading) {
-                            Text(song.reservedSong.song.title)
-                                .font(.headline)
-                            
-                            if let artist = song.reservedSong.song.artist {
-                                Text(artist)
-                                    .font(.headline)
+            ZStack {
+                VStack {
+                    List(viewModel.songs) { (song: ReservedSongListViewModel.ReservedSongWrapper) in
+                        HStack {
+                            AsyncImage(url: song.reservedSong.song.image?.asURL()) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill) // Added aspect ratio modifier
+                                    .frame(width: 50, height: 50)
+                                    .clipped() // Added clipped modifier to ensure the image doesn't exceed the frame
+                            } placeholder: {
+                                // Placeholder view with music symbol
+                                Image(systemName: "music.note")
+                                    .font(.system(size: 20))
                                     .foregroundColor(.gray)
+                                    .frame(width: 50, height: 50)
+                            }
+                            .background(Color.gray.opacity(0.5))
+                            
+                            VStack(alignment: .leading) {
+                                Text(song.reservedSong.song.title)
+                                    .font(.headline)
+                                
+                                if let artist = song.reservedSong.song.artist {
+                                    Text(artist)
+                                        .font(.headline)
+                                        .foregroundColor(.gray)
+                                }
+                            }
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                if song.isCurrentlyPlaying {
+                                    viewModel.stopCurrent()
+                                } else {
+                                    viewModel.cancelSong(song)
+                                }
+                            }, label: {
+                                let icon = song.isCurrentlyPlaying ? "stop.fill" : "trash"
+                                
+                                Image(systemName: icon)
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.blue.opacity(0.75))
+                            })
+                            if !song.isCurrentlyPlaying {
                             }
                         }
-                        
+                    }
+                    .scrollContentBackground(.hidden)
+                }
+                
+                VStack{
+                    Spacer()
+                    
+                    HStack {
                         Spacer()
                         
                         Button(action: {
-                            if song.isCurrentlyPlaying {
-                                viewModel.stopCurrent()
-                            } else {
-                                viewModel.cancelSong(song)
-                            }
+                            viewModel.showsSongBook.toggle()
                         }, label: {
-                            let icon = song.isCurrentlyPlaying ? "stop.fill" : "trash"
-                            
-                            Image(systemName: icon)
+                            Image(systemName: "book.fill")
                                 .font(.system(size: 20))
-                                .foregroundColor(.blue.opacity(0.75))
+                                .foregroundColor(.white)
                         })
-                        if !song.isCurrentlyPlaying {
-                        }
-                    }
+                        .padding()
+                        .background(.blue.opacity(0.75))
+                        .clipShape(Circle()) // Make the button circular
+                    }.padding(.horizontal, 16)
                 }
-                .scrollContentBackground(.hidden)
             }
             .background(Color.indigo)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Back") {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                }
-            }
             .toolbarBackground(.visible, for: .navigationBar)
+            .sheet(isPresented: $viewModel.showsSongBook, content: {
+                SongListView()
+            })
         }
     }
 }
 
 #Preview {
-    ReservedSongListView()
+    DependencyManager.setup(environment: .preview, clientType: .controller)
+    return ReservedSongListView()
 }

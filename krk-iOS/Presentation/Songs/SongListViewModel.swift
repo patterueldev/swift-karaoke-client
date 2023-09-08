@@ -26,22 +26,7 @@ class SongListViewModel: ObservableObject {
     private var searchTimer: Timer?
     
     func setup() {
-        Task {
-            do {
-                // check if API manager is setup properly
-                self.loadSongs()
-//                let isSetup = try await apiManager.checkIfServerIsSetup()
-//                await MainActor.run {
-//                    self.showsConnectToServer = !isSetup
-//                    if isSetup { self.loadSongs() }
-//                }
-            } catch {
-                print(error.localizedDescription)
-                await MainActor.run {
-                    self.showsConnectToServer = true
-                }
-            }
-        }
+        self.loadSongs()
     }
     
     func loadSongs() {

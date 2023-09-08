@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RestKaraokeDataSource: KaraokeRepository {
+struct RestKaraokeDataSource: KaraokeRepository {
     let apiManager: APIManager
     
     init(apiManager: APIManager) {

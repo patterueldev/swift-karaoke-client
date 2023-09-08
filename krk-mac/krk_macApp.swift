@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import krk_common
 
 @main
 struct krk_macApp: App {
+    init() {
+        DependencyManager.setup(environment: .app, clientType: .player)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            KaraokeView()
         }
     }
 }

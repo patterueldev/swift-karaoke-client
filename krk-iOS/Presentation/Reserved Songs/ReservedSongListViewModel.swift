@@ -9,28 +9,32 @@ import SwiftUI
 import krk_common
 
 class ReservedSongListViewModel: ObservableObject {
-    private let getReservedSongs: GetReservedSongsUseCase
+    private let observeReservedSongs: ObserveReservedSongsUseCase
+    private let triggerServerEventUseCase: TriggerServerEventUseCase
     private let cancelReservedSong: CancelReservedSongUseCase
     private let stopCurrentSong: StopCurrentlyPlayingUseCase
     
     init() {
         let dependencyManager = DependencyManager.shared
-        self.getReservedSongs = dependencyManager.getReservedSongsUseCase
+        self.observeReservedSongs = dependencyManager.observeReservedSongsUseCase
         self.cancelReservedSong = dependencyManager.cancelReservedSongUseCase
         self.stopCurrentSong = dependencyManager.stopCurrentlyPlayingUseCase
+        self.triggerServerEventUseCase = dependencyManager.triggerServerEventUseCase
+        
+        self.startObserver()
     }
     
     @Published var songs: [ReservedSongWrapper] = []
     
-    func loadSongs() {
+    func startObserver() {
         Task {
-            do {
-                let songs = try await getReservedSongs.execute().map({ ReservedSongWrapper($0) })
+            for await songs in observeReservedSongs.observe() {
                 await MainActor.run {
-                    self.songs = songs
+                    self.songs.removeAll()
+                    for i in 0..<songs.count {
+                        self.songs.append(ReservedSongWrapper(songs[i], isCurrentlyPlaying: i == 0))
+                    }
                 }
-            } catch {
-                print("Error: \(error.localizedDescription)")
             }
         }
     }
@@ -39,9 +43,6 @@ class ReservedSongListViewModel: ObservableObject {
         Task {
             do {
                 try await cancelReservedSong.execute(song: song.reservedSong)
-                await MainActor.run {
-                    self.loadSongs()
-                }
             } catch {
                 print("Error: \(error.localizedDescription)")
             }
@@ -51,10 +52,11 @@ class ReservedSongListViewModel: ObservableObject {
     func stopCurrent() {
         Task {
             do {
-                try await stopCurrentSong.execute()
-                await MainActor.run {
-                    self.loadSongs()
-                }
+//                try await stopCurrentSong.execute()
+                self.triggerServerEventUseCase.emit(event: .ControllerSongStopped, data: [])
+//                await MainActor.run {
+//                    self.loadSongs()
+//                }
             }
         }
     }
@@ -62,10 +64,12 @@ class ReservedSongListViewModel: ObservableObject {
     struct ReservedSongWrapper: Identifiable {
         let id: String
         let reservedSong: ReservedSong
+        let isCurrentlyPlaying: Bool
         
-        init(_ song: ReservedSong) {
+        init(_ song: ReservedSong, isCurrentlyPlaying: Bool) {
             self.id = song.identifier
             self.reservedSong = song
+            self.isCurrentlyPlaying = isCurrentlyPlaying
         }
     }
 }

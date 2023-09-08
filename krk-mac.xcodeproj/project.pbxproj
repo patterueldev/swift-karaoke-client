@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		432D2D282AA869B200B999FC /* KaraokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D2D272AA869B200B999FC /* KaraokeView.swift */; };
+		432D2D2A2AA86ABA00B999FC /* KaraokeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432D2D292AA86ABA00B999FC /* KaraokeViewModel.swift */; };
 		43622F712AA8626400DF35DE /* krk_macApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43622F702AA8626400DF35DE /* krk_macApp.swift */; };
 		43622F732AA8626400DF35DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43622F722AA8626400DF35DE /* ContentView.swift */; };
 		43622F752AA8626600DF35DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43622F742AA8626600DF35DE /* Assets.xcassets */; };
@@ -15,11 +17,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		432D2D272AA869B200B999FC /* KaraokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaraokeView.swift; sourceTree = "<group>"; };
+		432D2D292AA86ABA00B999FC /* KaraokeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaraokeViewModel.swift; sourceTree = "<group>"; };
 		43622F6D2AA8626400DF35DE /* krk-mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "krk-mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43622F702AA8626400DF35DE /* krk_macApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = krk_macApp.swift; sourceTree = "<group>"; };
 		43622F722AA8626400DF35DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43622F742AA8626600DF35DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43622F772AA8626600DF35DE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		43E2A0642AA944E00002ADBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,8 +42,18 @@
 		432D2D242AA8683E00B999FC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				432D2D252AA8698D00B999FC /* Karaoke */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		432D2D252AA8698D00B999FC /* Karaoke */ = {
+			isa = PBXGroup;
+			children = (
+				432D2D272AA869B200B999FC /* KaraokeView.swift */,
+				432D2D292AA86ABA00B999FC /* KaraokeViewModel.swift */,
+			);
+			path = Karaoke;
 			sourceTree = "<group>";
 		};
 		43622F642AA8626400DF35DE = {
@@ -65,6 +80,7 @@
 				43622F722AA8626400DF35DE /* ContentView.swift */,
 				43622F742AA8626600DF35DE /* Assets.xcassets */,
 				43622F762AA8626600DF35DE /* Preview Content */,
+				43E2A0642AA944E00002ADBD /* Info.plist */,
 			);
 			path = "krk-mac";
 			sourceTree = "<group>";
@@ -153,8 +169,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432D2D282AA869B200B999FC /* KaraokeView.swift in Sources */,
 				43622F732AA8626400DF35DE /* ContentView.swift in Sources */,
 				43622F712AA8626400DF35DE /* krk_macApp.swift in Sources */,
+				432D2D2A2AA86ABA00B999FC /* KaraokeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +308,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"krk-mac/Preview Content\"";
 				DEVELOPMENT_TEAM = 2ZL598ZSDC;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/krk-mac/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,7 +339,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"krk-mac/Preview Content\"";
 				DEVELOPMENT_TEAM = 2ZL598ZSDC;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/krk-mac/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

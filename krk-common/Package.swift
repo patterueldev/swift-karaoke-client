@@ -12,11 +12,16 @@ let package = Package(
             name: "krk-common",
             targets: ["krk-common"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/socketio/socket.io-client-swift", .upToNextMinor(from: "16.1.0"))
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "krk-common"),
+            name: "krk-common", dependencies: [
+                .product(name: "SocketIO", package: "socket.io-client-swift")
+            ]),
         .testTarget(
             name: "krk-commonTests",
             dependencies: ["krk-common"]),

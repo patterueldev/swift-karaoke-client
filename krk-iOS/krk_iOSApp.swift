@@ -11,7 +11,7 @@ import krk_common
 @main
 struct krk_iOSApp: App {
     init() {
-        DependencyManager.setup(environment: .app)
+        DependencyManager.setup(environment: .app, clientType: .controller)
     }
     
     var body: some Scene {

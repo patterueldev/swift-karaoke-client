@@ -101,6 +101,6 @@ struct SongListView: View {
 }
 
 #Preview {
-    DependencyManager.setup(environment: .preview)
+    DependencyManager.setup(environment: .preview, clientType: .controller)
     return SongListView()
 }

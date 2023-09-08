@@ -16,21 +16,14 @@ private func notImplemented() -> Error {
 
 class DemoKaraokeDataSource: KaraokeRepository {
     var someSongs: [Song] = [
-        DemoSong(identifier: "1", title: "Song 1", artist: "Artist 1", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "2", title: "Song 2", artist: "Artist 2", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "3", title: "Song 3", artist: "Artist 3", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "4", title: "Never Gonna Give You Up", artist: "Rick Astley", image: "https://variety.com/wp-content/uploads/2021/07/Rick-Astley-Never-Gonna-Give-You-Up.png?w=1024", containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "5", title: "Song 5", artist: "Artist 5", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "6", title: "Song 6", artist: "Artist 6", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "7", title: "Song 7", artist: "Artist 7", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "8", title: "Song 8", artist: "Artist 8", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "9", title: "Song 9", artist: "Artist 9", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "10", title: "Song 10", artist: "Artist 10", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "11", title: "Song 11", artist: "Artist 11", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "12", title: "Song 12", artist: "Artist 12", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "13", title: "Song 13", artist: "Artist 13", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "14", title: "Song 14", artist: "Artist 14", image: nil, containsLyrics: true, containsVoice: true),
-        DemoSong(identifier: "15", title: "Song 15", artist: "Artist 15", image: nil, containsLyrics: true, containsVoice: true),
+        DemoSong(identifier: "64f4752dbc2f36acb2c0ae6d", title: "Song 1", artist: "Artist 1", image: nil, containsLyrics: true, containsVoice: true),
+        DemoSong(identifier: "64f4752dbc2f36acb2c0ae6e", title: "Song 2", artist: "Artist 2", image: nil, containsLyrics: true, containsVoice: true),
+        DemoSong(identifier: "64f4752dbc2f36acb2c0aec7", title: "Song 3", artist: "Artist 3", image: nil, containsLyrics: true, containsVoice: true),
+        DemoSong(identifier: "64f4752dbc2f36acb2c0ae9a", title: "Never Gonna Give You Up", artist: "Rick Astley", image: "https://variety.com/wp-content/uploads/2021/07/Rick-Astley-Never-Gonna-Give-You-Up.png?w=1024", containsLyrics: true, containsVoice: true),
+        DemoSong(identifier: "64f4752dbc2f36acb2c0ae75", title: "Song 5", artist: "Artist 5", image: nil, containsLyrics: true, containsVoice: true),
+        DemoSong(identifier: "64f4752dbc2f36acb2c0ae83", title: "Song 6", artist: "Artist 6", image: nil, containsLyrics: true, containsVoice: true),
+        DemoSong(identifier: "64f4752dbc2f36acb2c0aebc", title: "Song 7", artist: "Artist 7", image: nil, containsLyrics: true, containsVoice: true),
+        DemoSong(identifier: "64f4752dbc2f36acb2c0ae6c", title: "Song 8", artist: "Artist 8", image: nil, containsLyrics: true, containsVoice: true),
     ]
     var reservedSongs: [ReservedSong] = []
     
@@ -47,8 +40,11 @@ class DemoKaraokeDataSource: KaraokeRepository {
     
     func getReservedSongs() async throws -> [ReservedSong] {
         if reservedSongs.isEmpty {
-            if let song = someSongs.randomElement() {
-                try await reserveSong(song)
+            var randomNumberBetween3and7 = Int.random(in: 3..<8)
+            for _ in 0..<randomNumberBetween3and7 {
+                if let song = someSongs.randomElement() {
+                    try await reserveSong(song)
+                }
             }
         }
         return reservedSongs

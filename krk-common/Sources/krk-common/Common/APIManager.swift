@@ -92,7 +92,7 @@ class DefaultAPIManager: APIManager {
         self.decoder = decoder
     }
     
-    private var baseURL: String = "http://Saturday.local:3000"
+    private var baseURL: String = "http://Saturday.local:3000/api"
   
     func setBaseURL(_ url: String) throws {
         guard let _ = URL(string: url) else {
@@ -127,7 +127,7 @@ class DefaultAPIManager: APIManager {
         body: Data? = nil
     ) async throws -> T {
         let baseURL = try getBaseURL()
-        guard let url = URL(string: baseURL + "/api/" + path.path) else {
+        guard let url = URL(string: baseURL + "/" + path.path) else {
             throw APIError.invalidURL
         }
         
@@ -150,6 +150,21 @@ class DefaultAPIManager: APIManager {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = body
         }
+        
+        var curl = "curl -X \(method.rawValue)"
+        if let headers = headers {
+            for (key, value) in headers {
+                curl += "\\\n     -H '\(key): \(value)'"
+            }
+        }
+        if let body = body {
+            curl += "\\\n     -d '\(String(data: body, encoding: .utf8)!)'"
+        }
+        curl += "\\\n \(url.absoluteString)"
+        if let urlParams = urlParams {
+            curl += "?" + urlParams.map { "\($0)=\($1)" }.joined(separator: "&")
+        }
+        print(curl)
         
         let (data, _) = try await URLSession.shared.data(for: request)
         

@@ -10,12 +10,10 @@ import Foundation
 
 struct RestReservedSong: ReservedSong, Codable {
     let identifier: String
-    let currentlyPlaying: Bool
     let restSong: RestSong
     
     enum CodingKeys: String, CodingKey {
         case identifier
-        case currentlyPlaying
         case restSong = "song"
     }
     

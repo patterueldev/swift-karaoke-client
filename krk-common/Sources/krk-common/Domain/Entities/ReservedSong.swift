@@ -9,6 +9,5 @@ import Foundation
 
 public protocol ReservedSong {
     var identifier: String { get }
-    var currentlyPlaying: Bool { get }
     var song: Song { get }
 }

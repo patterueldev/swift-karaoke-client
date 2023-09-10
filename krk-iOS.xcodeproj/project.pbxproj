@@ -16,7 +16,41 @@
 		435653CC2AA1A6E700068353 /* SongListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653CB2AA1A6E700068353 /* SongListView.swift */; };
 		435653CE2AA1A6F500068353 /* SongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435653CD2AA1A6F500068353 /* SongListViewModel.swift */; };
 		43622F8C2AA8641800DF35DE /* krk-common in Frameworks */ = {isa = PBXBuildFile; productRef = 43622F8B2AA8641800DF35DE /* krk-common */; };
+		439B0FD72AAAEC6300D56F3A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FD62AAAEC6300D56F3A /* ShareViewController.swift */; };
+		439B0FDA2AAAEC6300D56F3A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439B0FD82AAAEC6300D56F3A /* MainInterface.storyboard */; };
+		439B0FDE2AAAEC6300D56F3A /* krk-share-iOS.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 439B0FD42AAAEC6300D56F3A /* krk-share-iOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		439B0FE42AAAF35400D56F3A /* SaveToSongBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FE32AAAF35400D56F3A /* SaveToSongBookViewController.swift */; };
+		439B0FE72AAAFAFF00D56F3A /* krk-common in Frameworks */ = {isa = PBXBuildFile; productRef = 439B0FE62AAAFAFF00D56F3A /* krk-common */; };
+		439B0FEA2AAAFB3000D56F3A /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 439B0FE92AAAFB3000D56F3A /* SwiftSoup */; };
+		439B0FEE2AACAD1200D56F3A /* DownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FED2AACAD1200D56F3A /* DownloaderView.swift */; };
+		439B0FF02AACAD4F00D56F3A /* KrkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FEF2AACAD4F00D56F3A /* KrkHelper.swift */; };
+		439B0FF22AACAE2C00D56F3A /* DownloaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FF12AACAE2C00D56F3A /* DownloaderManager.swift */; };
+		439B0FF42AACAF2400D56F3A /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FF32AACAF2400D56F3A /* DownloaderViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		439B0FDC2AAAEC6300D56F3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 435653B12AA1A57800068353 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 439B0FD32AAAEC6300D56F3A;
+			remoteInfo = "krk-share-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		439B0FDF2AAAEC6300D56F3A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				439B0FDE2AAAEC6300D56F3A /* krk-share-iOS.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4338DA202AA4C67600F8089F /* ReservedSongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservedSongListView.swift; sourceTree = "<group>"; };
@@ -28,6 +62,16 @@
 		435653C32AA1A57B00068353 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		435653CB2AA1A6E700068353 /* SongListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListView.swift; sourceTree = "<group>"; };
 		435653CD2AA1A6F500068353 /* SongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewModel.swift; sourceTree = "<group>"; };
+		439B0FD42AAAEC6300D56F3A /* krk-share-iOS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "krk-share-iOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		439B0FD62AAAEC6300D56F3A /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		439B0FD92AAAEC6300D56F3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		439B0FDB2AAAEC6300D56F3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		439B0FE32AAAF35400D56F3A /* SaveToSongBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveToSongBookViewController.swift; sourceTree = "<group>"; };
+		439B0FEB2AAAFE8600D56F3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		439B0FED2AACAD1200D56F3A /* DownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderView.swift; sourceTree = "<group>"; };
+		439B0FEF2AACAD4F00D56F3A /* KrkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrkHelper.swift; sourceTree = "<group>"; };
+		439B0FF12AACAE2C00D56F3A /* DownloaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderManager.swift; sourceTree = "<group>"; };
+		439B0FF32AACAF2400D56F3A /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +79,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				439B0FE72AAAFAFF00D56F3A /* krk-common in Frameworks */,
 				43622F8C2AA8641800DF35DE /* krk-common in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		439B0FD12AAAEC6300D56F3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				439B0FEA2AAAFB3000D56F3A /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +98,8 @@
 		432D2D1F2AA8655E00B999FC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				439B0FEF2AACAD4F00D56F3A /* KrkHelper.swift */,
+				439B0FF12AACAE2C00D56F3A /* DownloaderManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -52,6 +107,7 @@
 		4338DA152AA4746500F8089F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				439B0FEC2AACAC5200D56F3A /* Downloader */,
 				4338DA1F2AA4C65B00F8089F /* Reserved Songs */,
 				435653CA2AA1A6D200068353 /* Songs */,
 			);
@@ -71,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				435653BB2AA1A57800068353 /* krk-iOS */,
+				439B0FD52AAAEC6300D56F3A /* krk-share-iOS */,
 				435653BA2AA1A57800068353 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				435653B92AA1A57800068353 /* krk-iOS.app */,
+				439B0FD42AAAEC6300D56F3A /* krk-share-iOS.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +144,7 @@
 		435653BB2AA1A57800068353 /* krk-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				439B0FEB2AAAFE8600D56F3A /* Info.plist */,
 				432D2D1F2AA8655E00B999FC /* Common */,
 				4338DA152AA4746500F8089F /* Presentation */,
 				435653BC2AA1A57800068353 /* krk_iOSApp.swift */,
@@ -113,6 +172,26 @@
 			path = Songs;
 			sourceTree = "<group>";
 		};
+		439B0FD52AAAEC6300D56F3A /* krk-share-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				439B0FD62AAAEC6300D56F3A /* ShareViewController.swift */,
+				439B0FD82AAAEC6300D56F3A /* MainInterface.storyboard */,
+				439B0FDB2AAAEC6300D56F3A /* Info.plist */,
+				439B0FE32AAAF35400D56F3A /* SaveToSongBookViewController.swift */,
+			);
+			path = "krk-share-iOS";
+			sourceTree = "<group>";
+		};
+		439B0FEC2AACAC5200D56F3A /* Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				439B0FED2AACAD1200D56F3A /* DownloaderView.swift */,
+				439B0FF32AACAF2400D56F3A /* DownloaderViewModel.swift */,
+			);
+			path = Downloader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,18 +202,41 @@
 				435653B52AA1A57800068353 /* Sources */,
 				435653B62AA1A57800068353 /* Frameworks */,
 				435653B72AA1A57800068353 /* Resources */,
+				439B0FDF2AAAEC6300D56F3A /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				439B0FDD2AAAEC6300D56F3A /* PBXTargetDependency */,
+			);
+			name = "krk-iOS";
+			packageProductDependencies = (
+				43622F8B2AA8641800DF35DE /* krk-common */,
+				439B0FE62AAAFAFF00D56F3A /* krk-common */,
+			);
+			productName = "krk-iOS";
+			productReference = 435653B92AA1A57800068353 /* krk-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		439B0FD32AAAEC6300D56F3A /* krk-share-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 439B0FE22AAAEC6300D56F3A /* Build configuration list for PBXNativeTarget "krk-share-iOS" */;
+			buildPhases = (
+				439B0FD02AAAEC6300D56F3A /* Sources */,
+				439B0FD12AAAEC6300D56F3A /* Frameworks */,
+				439B0FD22AAAEC6300D56F3A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "krk-iOS";
+			name = "krk-share-iOS";
 			packageProductDependencies = (
-				43622F8B2AA8641800DF35DE /* krk-common */,
+				439B0FE92AAAFB3000D56F3A /* SwiftSoup */,
 			);
-			productName = "krk-iOS";
-			productReference = 435653B92AA1A57800068353 /* krk-iOS.app */;
-			productType = "com.apple.product-type.application";
+			productName = "krk-share-iOS";
+			productReference = 439B0FD42AAAEC6300D56F3A /* krk-share-iOS.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -149,6 +251,9 @@
 					435653B82AA1A57800068353 = {
 						CreatedOnToolsVersion = 15.0;
 					};
+					439B0FD32AAAEC6300D56F3A = {
+						CreatedOnToolsVersion = 15.0;
+					};
 				};
 			};
 			buildConfigurationList = 435653B42AA1A57800068353 /* Build configuration list for PBXProject "krk-iOS" */;
@@ -161,13 +266,15 @@
 			);
 			mainGroup = 435653B02AA1A57800068353;
 			packageReferences = (
-				43622F8A2AA8641800DF35DE /* XCLocalSwiftPackageReference "krk-common" */,
+				439B0FE52AAAFAFF00D56F3A /* XCLocalSwiftPackageReference "krk-common" */,
+				439B0FE82AAAFB3000D56F3A /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 435653BA2AA1A57800068353 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				435653B82AA1A57800068353 /* krk-iOS */,
+				439B0FD32AAAEC6300D56F3A /* krk-share-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -182,6 +289,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		439B0FD22AAAEC6300D56F3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				439B0FDA2AAAEC6300D56F3A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -189,8 +304,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				439B0FF22AACAE2C00D56F3A /* DownloaderManager.swift in Sources */,
 				435653BF2AA1A57800068353 /* ContentView.swift in Sources */,
 				4338DA232AA4C68700F8089F /* ReservedSongListViewModel.swift in Sources */,
+				439B0FF02AACAD4F00D56F3A /* KrkHelper.swift in Sources */,
+				439B0FEE2AACAD1200D56F3A /* DownloaderView.swift in Sources */,
+				439B0FF42AACAF2400D56F3A /* DownloaderViewModel.swift in Sources */,
 				435653CE2AA1A6F500068353 /* SongListViewModel.swift in Sources */,
 				435653CC2AA1A6E700068353 /* SongListView.swift in Sources */,
 				4338DA212AA4C67600F8089F /* ReservedSongListView.swift in Sources */,
@@ -198,7 +317,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		439B0FD02AAAEC6300D56F3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				439B0FE42AAAF35400D56F3A /* SaveToSongBookViewController.swift in Sources */,
+				439B0FD72AAAEC6300D56F3A /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		439B0FDD2AAAEC6300D56F3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 439B0FD32AAAEC6300D56F3A /* krk-share-iOS */;
+			targetProxy = 439B0FDC2AAAEC6300D56F3A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		439B0FD82AAAEC6300D56F3A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				439B0FD92AAAEC6300D56F3A /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		435653C52AA1A57B00068353 /* Debug */ = {
@@ -323,6 +470,7 @@
 		435653C82AA1A57B00068353 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -331,6 +479,7 @@
 				DEVELOPMENT_TEAM = 2ZL598ZSDC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "krk-iOS/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app will use your camera to scan a QR code and connect to the server.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -354,6 +503,7 @@
 		435653C92AA1A57B00068353 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -362,6 +512,7 @@
 				DEVELOPMENT_TEAM = 2ZL598ZSDC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "krk-iOS/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app will use your camera to scan a QR code and connect to the server.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -376,6 +527,58 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pat.krk-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		439B0FE02AAAEC6300D56F3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2ZL598ZSDC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "krk-share-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "krk-share-iOS";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pat.krk-iOS.krk-share-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		439B0FE12AAAEC6300D56F3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2ZL598ZSDC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "krk-share-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "krk-share-iOS";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pat.krk-iOS.krk-share-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -403,19 +606,48 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		439B0FE22AAAEC6300D56F3A /* Build configuration list for PBXNativeTarget "krk-share-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				439B0FE02AAAEC6300D56F3A /* Debug */,
+				439B0FE12AAAEC6300D56F3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		43622F8A2AA8641800DF35DE /* XCLocalSwiftPackageReference "krk-common" */ = {
+		439B0FE52AAAFAFF00D56F3A /* XCLocalSwiftPackageReference "krk-common" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "krk-common";
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		439B0FE82AAAFB3000D56F3A /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		43622F8B2AA8641800DF35DE /* krk-common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "krk-common";
+		};
+		439B0FE62AAAFAFF00D56F3A /* krk-common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "krk-common";
+		};
+		439B0FE92AAAFB3000D56F3A /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 439B0FE82AAAFB3000D56F3A /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

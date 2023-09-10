@@ -12,11 +12,13 @@ class RestSocketDataSource: SocketRepository {
     let clientType: ClientType
     let socketManager: SocketManager
     let socket: SocketIOClient
+    let decoder: JSONDecoder
     
-    init(clientType: ClientType, socketManager: SocketManager) {
+    init(clientType: ClientType, socketManager: SocketManager, decoder: JSONDecoder) {
         self.clientType = clientType
         self.socketManager = socketManager
         self.socket = socketManager.defaultSocket
+        self.decoder = decoder
         self.socket.connect()
     }
     
@@ -57,6 +59,43 @@ class RestSocketDataSource: SocketRepository {
                     return try? JSONDecoder().decode(RestReservedSong.self, from: data)
                 }
                 continuation.yield(reservedSongs)
+            }
+        }
+    }
+    
+    
+    func observeServerCommands() -> AsyncStream<Command> {
+        self.prepareOnce()
+        return AsyncStream { continuation in
+            socket.on(Event.PlayerClientPlay.rawValue) { [weak self] data, ack in
+                print("received play command")
+                guard let song = data.first as? [String: Any] else {
+                    return
+                }
+                print("Song: \(song)")
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: song, options: [])
+                    guard let raw = try self?.decoder.decode(RestReservedSong.self, from: data) else {
+                        throw NSError(domain: "Decode error", code: 0, userInfo: nil)
+                    }
+                    print("Playing song: \(raw.song.identifier)")
+                    continuation.yield(.play(id: raw.song.identifier))
+                } catch {
+                    print("Error decoding song: \(error)")
+                }
+            }
+            
+            socket.on(Event.PlayerClientPause.rawValue) { data, ack in
+                continuation.yield(.pause)
+            }
+            
+            socket.on(Event.PlayerClientResume.rawValue) { data, ack in
+                guard let id = data.first as? String else { return }
+                continuation.yield(.resume)
+            }
+        
+            socket.on(Event.PlayerClientStop.rawValue) { data, ack in
+                continuation.yield(.stop)
             }
         }
     }

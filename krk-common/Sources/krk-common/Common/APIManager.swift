@@ -40,6 +40,16 @@ extension APIManager {
         )
     }
     
+    func postRequest<T: Codable>(path: APIPath) async throws -> T {
+        return try await makeRequest(
+            path: path,
+            method: .post,
+            headers: nil,
+            urlParams: nil,
+            body: nil
+        )
+    }
+    
     func postRequest<P: Codable, T: Codable>(path: APIPath, body: P?) async throws -> T {
         let body: Data? = try body.map { try encoder.encode($0) }
         return try await makeRequest(
@@ -181,9 +191,9 @@ class DefaultAPIManager: APIManager {
 enum APIPath {
     case index
     case songs
-    case reserve
-    case reserved
-    case cancelReservation(id: String)
+    case reserve(id: String) // api/songs/item/:id/queue
+    case reserved // api/queue
+    case cancelReservation(id: String) // api/queue/item/:id/cancel
     case stopCurrent
     
     var path: String {
@@ -192,14 +202,14 @@ enum APIPath {
             return ""
         case .songs:
             return "songs"
-        case .reserve:
-            return "reserve"
+        case .reserve(let id):
+            return "songs/item/\(id)/queue"
         case .reserved:
-            return "reserved"
+            return "queue"
         case .cancelReservation(let id):
-            return "reserved/\(id)/cancel"
+            return "queue/item/\(id)/cancel"
         case .stopCurrent:
-            return "current/stop"
+            return "queue/cancel"
         }
     }
 }

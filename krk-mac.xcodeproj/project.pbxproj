@@ -24,7 +24,6 @@
 		43622F722AA8626400DF35DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43622F742AA8626600DF35DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43622F772AA8626600DF35DE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		43E2A0642AA944E00002ADBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +79,6 @@
 				43622F722AA8626400DF35DE /* ContentView.swift */,
 				43622F742AA8626600DF35DE /* Assets.xcassets */,
 				43622F762AA8626600DF35DE /* Preview Content */,
-				43E2A0642AA944E00002ADBD /* Info.plist */,
 			);
 			path = "krk-mac";
 			sourceTree = "<group>";
@@ -308,8 +306,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"krk-mac/Preview Content\"";
 				DEVELOPMENT_TEAM = 2ZL598ZSDC;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/krk-mac/Info.plist";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -339,8 +337,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"krk-mac/Preview Content\"";
 				DEVELOPMENT_TEAM = 2ZL598ZSDC;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/krk-mac/Info.plist";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

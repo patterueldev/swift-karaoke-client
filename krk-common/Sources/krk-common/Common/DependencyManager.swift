@@ -72,9 +72,11 @@ public class DependencyManager {
         case .preview:
             return DemoSocketDataSource(karaokeRepository: karaokeRepository)
         case .app:
-            return RestSocketDataSource(clientType: clientType, socketManager: socketManager)
+            return RestSocketDataSource(clientType: clientType, socketManager: socketManager, decoder: decoder)
         }
     }()
+    
+    public lazy var krkHelper: KRKHelper = { fatalError("Not implemented") }()
     
     public lazy var getSongsUseCase: GetSongsUseCase = DefaultGetSongsUseCase(repository: karaokeRepository)
     public lazy var reserveSongUseCase: ReserveSongUseCase = DefaultReserveSongUseCase(repository: karaokeRepository)
@@ -82,7 +84,7 @@ public class DependencyManager {
     public lazy var cancelReservedSongUseCase: CancelReservedSongUseCase = DefaultCancelReservedSongUseCase(repository: karaokeRepository)
     public lazy var stopCurrentlyPlayingUseCase: StopCurrentlyPlayingUseCase = DefaultStopCurrentlyPlayingUseCase(repository: karaokeRepository)
     public lazy var observeReservedSongsUseCase: ObserveReservedSongsUseCase = DefaultObserveReservedSongsUseCase(socketRepository: socketRepository)
-    public lazy var observeServerCommandUseCase: ObserveServerCommandUseCase = DefaultObserveServerCommandUseCase(socketManager: socketManager, decoder: decoder)
+    public lazy var observeServerCommandUseCase: ObserveServerCommandUseCase = DefaultObserveServerCommandUseCase(socketRepository: socketRepository)
     public lazy var triggerServerEventUseCase: TriggerServerEventUseCase = DefaultTriggerServerEventUseCase(socketManager: socketManager)
     
     // MARK: - Declarations

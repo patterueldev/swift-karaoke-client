@@ -21,4 +21,12 @@ class DemoSocketDataSource: SocketRepository {
             }
         }
     }
+    
+    func observeServerCommands() -> AsyncStream<Command> {
+        return AsyncStream { continuation in
+            Task {
+                continuation.yield(.play(id: ""))
+            }
+        }
+    }
 }

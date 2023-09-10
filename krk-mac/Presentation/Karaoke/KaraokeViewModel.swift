@@ -18,7 +18,7 @@ class KaraokeViewModel: ObservableObject {
     @Published var player: AVPlayer?
     
     private var currentlyPlaying: ReservedSong?
-    private var isPlaying = false
+    private var observer: NSObjectProtocol?
     
     // for now, let's just manually load reserved songs
     let getReservedSongsUseCase: GetReservedSongsUseCase
@@ -37,8 +37,10 @@ class KaraokeViewModel: ObservableObject {
         Task {
             print("starting observer")
             for await songs in observeReservedSongs.observe() {
+                print("got updated queue: \(songs.map{$0.song.title})")
+                let result = songs.map({ ReservedSongWrapper($0) })
                 await MainActor.run {
-                    self.reservedSongs = songs.map({ ReservedSongWrapper($0) })
+                    self.reservedSongs = result
                 }
             }
         }
@@ -49,29 +51,37 @@ class KaraokeViewModel: ObservableObject {
             for await command in self.observeServerCommandUseCase.observe() {
                 switch command {
                 case .play(let id):
+                    print("will play \(id)")
                     self.play(id: id)
                 case .resume:
                     player?.play()
                 case .pause:
                     print("will pause")
                     player?.pause()
+                case .stop:
+                    print("will stop")
+                    player?.pause()
+                    await player?.seek(to: .zero)
+                    self.player = nil
                 }
             }
         }
     }
     
     func play(id: String) {
+        if let observer = self.observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        
         self.player?.pause()
         
-        let url = "http://localhost:3000/song?id=\(id)"
+        let url = "http://localhost:3000/media/\(id)"
         self.player = AVPlayer(url: URL(string: url)!)
         self.player?.play()
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { _ in
+        observer = NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { _ in
             print("finished playing")
             self.triggerServerEventUseCase.emit(event: .PlayerClientFinishedPlaying, data: [id])
         }
-        
-        self.isPlaying = true
     }
     
     struct ReservedSongWrapper: Identifiable {

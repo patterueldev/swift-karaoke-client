@@ -9,4 +9,5 @@ import Foundation
 
 protocol SocketRepository {
     func observeReservedSongs() -> AsyncStream<[ReservedSong]>
+    func observeServerCommands() -> AsyncStream<Command>
 }

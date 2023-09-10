@@ -30,7 +30,7 @@ struct RestKaraokeDataSource: KaraokeRepository {
     }
     
     func reserveSong(_ song: Song) async throws {
-        let response: GenericResponse<String> = try await apiManager.postRequest(path: .reserve, body: ReserveSongParams(id: song.identifier))
+        let response: GenericResponse<String> = try await apiManager.postRequest(path: .reserve(id: song.identifier))
         print("Reserve song response \(response)")
     }
     

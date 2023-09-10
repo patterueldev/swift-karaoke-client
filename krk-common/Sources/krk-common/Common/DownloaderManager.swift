@@ -5,17 +5,19 @@
 //  Created by John Patrick Teruel on 9/9/23.
 //
 
-import Foundation
 import UIKit
 
-protocol DownloaderManager {
+public protocol DownloaderManager {
     func getExtractedUrl() -> String
     func extractAndDownload(url: URL) -> Bool
     func extractFromClipboard() -> Bool
+    func setCachedSong(_ song: Song)
+    func getCachedSong() throws -> Song
 }
 
 class DefaultDownloaderManager: DownloaderManager {
     private var currentExtractedUrl: String = ""
+    private var cachedSong: Song?
     
     func getExtractedUrl() -> String {
         return currentExtractedUrl
@@ -41,5 +43,38 @@ class DefaultDownloaderManager: DownloaderManager {
         self.currentExtractedUrl = url.absoluteString
         return true
     }
+    
+    func setCachedSong(_ song: Song) {
+        self.cachedSong = song
+    }
+    
+    func getCachedSong() throws -> Song {
+        guard let song = cachedSong else {
+            throw NSError(domain: "No cached song", code: 0, userInfo: nil)
+        }
+        return song
+    }
+
 }
 
+class DemoDownloaderManager: DownloaderManager {
+    func getExtractedUrl() -> String {
+        return "https://youtube.com/watch?v=xOlgH5dvB68"
+    }
+    
+    func extractAndDownload(url: URL) -> Bool {
+        return true
+    }
+    
+    func extractFromClipboard() -> Bool {
+        return true
+    }
+    
+    func setCachedSong(_ song: Song) {
+        
+    }
+    
+    func getCachedSong() throws -> Song {
+        return DemoSong(identifier: "64f4752dbc2f36acb2c0ae9a", title: "Never Gonna Give You Up", artist: "Rick Astley", image: "https://variety.com/wp-content/uploads/2021/07/Rick-Astley-Never-Gonna-Give-You-Up.png?w=1024", containsLyrics: true, containsVoice: false)
+    }
+}

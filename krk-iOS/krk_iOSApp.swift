@@ -13,9 +13,6 @@ class AppHelper {
 }
 @main
 struct krk_iOSApp: App {
-    private var downloaderManager: DownloaderManager = DefaultDownloaderManager()
-    
-    
     init() {
         DependencyManager.setup(environment: .app, clientType: .controller)
     }
@@ -29,16 +26,16 @@ struct krk_iOSApp: App {
         WindowGroup {
             ReservedSongListView()
                 .sheet(isPresented: $isDownloaderPresented, content: {
-                    DownloaderView(manager: downloaderManager)
+                    DownloaderURLView(manager: DependencyManager.shared.downloaderManager)
                 })
                 .onOpenURL(perform: { url in
                     print("URL found: \(url)")
                     if url.scheme == "krkios" {
-                        self.isDownloaderPresented = downloaderManager.extractAndDownload(url: url)
+                        self.isDownloaderPresented = DependencyManager.shared.downloaderManager.extractAndDownload(url: url)
                     }
                 })
                 .onAppear {
-                    self.isDownloaderPresented = self.downloaderManager.extractFromClipboard()
+                    self.isDownloaderPresented = DependencyManager.shared.downloaderManager.extractFromClipboard()
                 }
         }
     }

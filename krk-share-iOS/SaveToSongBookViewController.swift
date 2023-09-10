@@ -6,16 +6,9 @@
 //
 
 import UIKit
-import SwiftSoup
 
 class SaveToSongBookViewController: UIViewController {
     @IBOutlet weak var sourceLabel: UILabel!
-    @IBOutlet weak var errorLabel: UILabel!
-    
-    @IBOutlet weak var songDetailsContainer: UIStackView!
-    @IBOutlet weak var songTitleField: UITextField!
-    @IBOutlet weak var songArtistField: UITextField!
-    @IBOutlet weak var songLanguageField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +84,7 @@ class SaveToSongBookViewController: UIViewController {
     // Courtesy: https://stackoverflow.com/a/44499222/13363449 👇🏾
     // Function must be named exactly like this so a selector can be found by the compiler!
     // Anyway - it's another selector in another instance that would be "performed" instead.
+    @discardableResult
     @objc private func openURL(_ url: URL) -> Bool {
         var responder: UIResponder? = self
         while responder != nil {
@@ -145,13 +139,6 @@ class SaveToSongBookViewController: UIViewController {
         guard let url = URL(string: text) else {
             return
         }
-        // try to get the video's title from the <title> tag
-        Task {
-            let title = try await getTitleFromYouTubeURL(url)
-            DispatchQueue.main.async {
-                self.songTitleField.text = title
-            }
-        }
         self.updateSourceLabel(url.absoluteString)
     }
     
@@ -160,43 +147,4 @@ class SaveToSongBookViewController: UIViewController {
             self.sourceLabel.text = text
         }
     }
-    
-    func getTitleFromYouTubeURL(_ url: URL) async throws -> String? {
-        // Create a URLSession to fetch the HTML content
-        let session = URLSession.shared
-
-        do {
-            // Fetch the HTML content asynchronously
-            let (data, _) = try await session.data(from: url)
-
-            // Convert the data to a string
-            if let htmlString = String(data: data, encoding: .utf8) {
-                // Extract the video title asynchronously
-                let title = try await extractTitleFromHTML(htmlString)
-                return title
-            }
-        } catch {
-            print("Error fetching or parsing HTML: \(error)")
-        }
-
-        return nil
-    }
-
-    // Function to extract the video title from HTML content
-    func extractTitleFromHTML(_ htmlString: String) async throws -> String? {
-        // Implement the logic to extract the video title from the HTML content.
-        // You can use regular expressions or HTML parsing libraries like SwiftSoup.
-
-        // Example using SwiftSoup (you need to add SwiftSoup to your project):
-        do {
-            let doc = try SwiftSoup.parse(htmlString)
-            let titleElement = try doc.select("title").first()
-            let title = try titleElement?.text()
-            return title
-        } catch {
-            throw error
-        }
-    }
-        
-    
 }

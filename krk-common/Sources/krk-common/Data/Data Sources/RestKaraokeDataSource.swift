@@ -56,6 +56,19 @@ struct RestKaraokeDataSource: KaraokeRepository {
         )
         print("Stop current response \(response)")
     }
+    
+    func identifySong(from url: String) async throws -> Song {
+        let response: GenericResponse<RestSong> = try await apiManager.postRequest(
+            path: .identifySong,
+            body: ["url": url]
+        )
+        return response.data
+    }
+    
+    func downloadSong(_ song: DownloadSongParameter) async throws -> Song {
+        let response: GenericResponse<RestSong> = try await apiManager.postRequest(path: .downloadSong, body: song)
+        return response.data
+    }
 }
 
 private struct ReserveSongParams: Codable {

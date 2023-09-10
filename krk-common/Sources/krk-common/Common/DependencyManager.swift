@@ -59,6 +59,15 @@ public class DependencyManager {
         return socketManager
     }()
     
+    public lazy var downloaderManager: DownloaderManager = {
+        switch environment {
+        case .preview:
+            return DemoDownloaderManager()
+        case .app:
+            return DefaultDownloaderManager()
+        }
+    }()
+    
     lazy var karaokeRepository: KaraokeRepository = {
         switch environment {
         case .preview:
@@ -76,8 +85,6 @@ public class DependencyManager {
         }
     }()
     
-    public lazy var krkHelper: KRKHelper = { fatalError("Not implemented") }()
-    
     public lazy var getSongsUseCase: GetSongsUseCase = DefaultGetSongsUseCase(repository: karaokeRepository)
     public lazy var reserveSongUseCase: ReserveSongUseCase = DefaultReserveSongUseCase(repository: karaokeRepository)
     public lazy var getReservedSongsUseCase: GetReservedSongsUseCase = DefaultGetReservedSongsUseCase(repository: karaokeRepository)
@@ -86,6 +93,8 @@ public class DependencyManager {
     public lazy var observeReservedSongsUseCase: ObserveReservedSongsUseCase = DefaultObserveReservedSongsUseCase(socketRepository: socketRepository)
     public lazy var observeServerCommandUseCase: ObserveServerCommandUseCase = DefaultObserveServerCommandUseCase(socketRepository: socketRepository)
     public lazy var triggerServerEventUseCase: TriggerServerEventUseCase = DefaultTriggerServerEventUseCase(socketManager: socketManager)
+    public lazy var identifySongFromURLUseCase: IdentifySongFromURLUseCase = DefaultIdentifySongFromURLUseCase(karaokeRepository: karaokeRepository)
+    public lazy var downloadSongUseCase: DownloadSongUseCase = DefaultDownloadSongUseCase(repository: karaokeRepository)
     
     // MARK: - Declarations
     public enum Environment {

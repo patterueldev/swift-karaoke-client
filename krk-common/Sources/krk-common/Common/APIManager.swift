@@ -195,6 +195,8 @@ enum APIPath {
     case reserved // api/queue
     case cancelReservation(id: String) // api/queue/item/:id/cancel
     case stopCurrent
+    case identifySong
+    case downloadSong
     
     var path: String {
         switch self {
@@ -210,6 +212,10 @@ enum APIPath {
             return "queue/item/\(id)/cancel"
         case .stopCurrent:
             return "queue/cancel"
+        case .identifySong:
+            return "songs/identify"
+        case .downloadSong:
+            return "songs/download"
         }
     }
 }

@@ -11,4 +11,16 @@ public extension String {
     func asURL() -> URL? {
         URL(string: self)
     }
+    
+    var trimmed: String {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    var nullIfEmpty: String? {
+        return self.isEmptyAfterTrimming ? nil : self
+    }
+
+    var isEmptyAfterTrimming: Bool {
+        return self.trimmed.isEmpty
+    }
 }

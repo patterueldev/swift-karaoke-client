@@ -14,6 +14,8 @@ struct RestSong: Song, Codable {
     let image: String?
     let containsLyrics: Bool
     let containsVoice: Bool
+    let language: String?
+    let source: String
     
     enum CodingKeys: String, CodingKey {
         case identifier
@@ -22,5 +24,7 @@ struct RestSong: Song, Codable {
         case image
         case containsLyrics
         case containsVoice
+        case language
+        case source
     }
 }

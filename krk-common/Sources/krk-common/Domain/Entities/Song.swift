@@ -14,4 +14,6 @@ public protocol Song {
     var image: String? { get }
     var containsLyrics: Bool { get }
     var containsVoice: Bool { get }
+    var language: String? { get }
+    var source: String { get }
 }

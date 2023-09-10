@@ -21,11 +21,9 @@
 		439B0FDE2AAAEC6300D56F3A /* krk-share-iOS.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 439B0FD42AAAEC6300D56F3A /* krk-share-iOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		439B0FE42AAAF35400D56F3A /* SaveToSongBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FE32AAAF35400D56F3A /* SaveToSongBookViewController.swift */; };
 		439B0FE72AAAFAFF00D56F3A /* krk-common in Frameworks */ = {isa = PBXBuildFile; productRef = 439B0FE62AAAFAFF00D56F3A /* krk-common */; };
-		439B0FEA2AAAFB3000D56F3A /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 439B0FE92AAAFB3000D56F3A /* SwiftSoup */; };
-		439B0FEE2AACAD1200D56F3A /* DownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FED2AACAD1200D56F3A /* DownloaderView.swift */; };
-		439B0FF02AACAD4F00D56F3A /* KrkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FEF2AACAD4F00D56F3A /* KrkHelper.swift */; };
-		439B0FF22AACAE2C00D56F3A /* DownloaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FF12AACAE2C00D56F3A /* DownloaderManager.swift */; };
-		439B0FF42AACAF2400D56F3A /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FF32AACAF2400D56F3A /* DownloaderViewModel.swift */; };
+		439B0FEE2AACAD1200D56F3A /* DownloaderURLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FED2AACAD1200D56F3A /* DownloaderURLView.swift */; };
+		439B0FF42AACAF2400D56F3A /* DownloaderURLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B0FF32AACAF2400D56F3A /* DownloaderURLViewModel.swift */; };
+		43E8758B2AADF2FA00A739B7 /* DownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8758A2AADF2FA00A739B7 /* DownloaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,10 +66,9 @@
 		439B0FDB2AAAEC6300D56F3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		439B0FE32AAAF35400D56F3A /* SaveToSongBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveToSongBookViewController.swift; sourceTree = "<group>"; };
 		439B0FEB2AAAFE8600D56F3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		439B0FED2AACAD1200D56F3A /* DownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderView.swift; sourceTree = "<group>"; };
-		439B0FEF2AACAD4F00D56F3A /* KrkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrkHelper.swift; sourceTree = "<group>"; };
-		439B0FF12AACAE2C00D56F3A /* DownloaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderManager.swift; sourceTree = "<group>"; };
-		439B0FF32AACAF2400D56F3A /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
+		439B0FED2AACAD1200D56F3A /* DownloaderURLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderURLView.swift; sourceTree = "<group>"; };
+		439B0FF32AACAF2400D56F3A /* DownloaderURLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderURLViewModel.swift; sourceTree = "<group>"; };
+		43E8758A2AADF2FA00A739B7 /* DownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				439B0FEA2AAAFB3000D56F3A /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,8 +94,6 @@
 		432D2D1F2AA8655E00B999FC /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				439B0FEF2AACAD4F00D56F3A /* KrkHelper.swift */,
-				439B0FF12AACAE2C00D56F3A /* DownloaderManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -107,7 +101,8 @@
 		4338DA152AA4746500F8089F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				439B0FEC2AACAC5200D56F3A /* Downloader */,
+				43E875892AADF2E900A739B7 /* Downloader */,
+				439B0FEC2AACAC5200D56F3A /* Downloader URL */,
 				4338DA1F2AA4C65B00F8089F /* Reserved Songs */,
 				435653CA2AA1A6D200068353 /* Songs */,
 			);
@@ -183,11 +178,19 @@
 			path = "krk-share-iOS";
 			sourceTree = "<group>";
 		};
-		439B0FEC2AACAC5200D56F3A /* Downloader */ = {
+		439B0FEC2AACAC5200D56F3A /* Downloader URL */ = {
 			isa = PBXGroup;
 			children = (
-				439B0FED2AACAD1200D56F3A /* DownloaderView.swift */,
-				439B0FF32AACAF2400D56F3A /* DownloaderViewModel.swift */,
+				439B0FED2AACAD1200D56F3A /* DownloaderURLView.swift */,
+				439B0FF32AACAF2400D56F3A /* DownloaderURLViewModel.swift */,
+			);
+			path = "Downloader URL";
+			sourceTree = "<group>";
+		};
+		43E875892AADF2E900A739B7 /* Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				43E8758A2AADF2FA00A739B7 /* DownloaderView.swift */,
 			);
 			path = Downloader;
 			sourceTree = "<group>";
@@ -232,7 +235,6 @@
 			);
 			name = "krk-share-iOS";
 			packageProductDependencies = (
-				439B0FE92AAAFB3000D56F3A /* SwiftSoup */,
 			);
 			productName = "krk-share-iOS";
 			productReference = 439B0FD42AAAEC6300D56F3A /* krk-share-iOS.appex */;
@@ -267,7 +269,6 @@
 			mainGroup = 435653B02AA1A57800068353;
 			packageReferences = (
 				439B0FE52AAAFAFF00D56F3A /* XCLocalSwiftPackageReference "krk-common" */,
-				439B0FE82AAAFB3000D56F3A /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 435653BA2AA1A57800068353 /* Products */;
 			projectDirPath = "";
@@ -304,12 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				439B0FF22AACAE2C00D56F3A /* DownloaderManager.swift in Sources */,
+				43E8758B2AADF2FA00A739B7 /* DownloaderView.swift in Sources */,
 				435653BF2AA1A57800068353 /* ContentView.swift in Sources */,
 				4338DA232AA4C68700F8089F /* ReservedSongListViewModel.swift in Sources */,
-				439B0FF02AACAD4F00D56F3A /* KrkHelper.swift in Sources */,
-				439B0FEE2AACAD1200D56F3A /* DownloaderView.swift in Sources */,
-				439B0FF42AACAF2400D56F3A /* DownloaderViewModel.swift in Sources */,
+				439B0FEE2AACAD1200D56F3A /* DownloaderURLView.swift in Sources */,
+				439B0FF42AACAF2400D56F3A /* DownloaderURLViewModel.swift in Sources */,
 				435653CE2AA1A6F500068353 /* SongListViewModel.swift in Sources */,
 				435653CC2AA1A6E700068353 /* SongListView.swift in Sources */,
 				4338DA212AA4C67600F8089F /* ReservedSongListView.swift in Sources */,
@@ -624,17 +624,6 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		439B0FE82AAAFB3000D56F3A /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scinfu/SwiftSoup";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.6.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
 		43622F8B2AA8641800DF35DE /* krk-common */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -643,11 +632,6 @@
 		439B0FE62AAAFAFF00D56F3A /* krk-common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "krk-common";
-		};
-		439B0FE92AAAFB3000D56F3A /* SwiftSoup */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 439B0FE82AAAFB3000D56F3A /* XCRemoteSwiftPackageReference "SwiftSoup" */;
-			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

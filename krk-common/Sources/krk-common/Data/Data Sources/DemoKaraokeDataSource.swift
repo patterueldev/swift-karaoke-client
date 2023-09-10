@@ -61,6 +61,14 @@ class DemoKaraokeDataSource: KaraokeRepository {
     func stopCurrentlyPlaying() async throws {
         throw notImplemented()
     }
+    
+    func identifySong(from url: String) async throws -> Song {
+        throw notImplemented()
+    }
+    
+    func downloadSong(_ song: DownloadSongParameter) async throws -> Song {
+        throw notImplemented()
+    }
 }
 
 struct DemoSong: Song {
@@ -70,6 +78,8 @@ struct DemoSong: Song {
     var image: String?
     var containsLyrics: Bool
     var containsVoice: Bool
+    var language: String?
+    var source = "brain"
 }
 
 struct DemoReservedSong: ReservedSong {

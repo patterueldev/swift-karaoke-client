@@ -69,19 +69,29 @@ class KaraokeViewModel: ObservableObject {
     }
     
     func play(id: String) {
-        if let observer = self.observer {
-            NotificationCenter.default.removeObserver(observer)
-        }
+        self.invalidateObserver()
+        self.destroyPlayer()
         
-        self.player?.pause()
-        
-        let url = "http://localhost:3000/media/\(id)"
+        let url = "http://Saturday.local:3000/media/\(id)"
         self.player = AVPlayer(url: URL(string: url)!)
         self.player?.play()
-        observer = NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { _ in
+        observer = NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { [weak self] _ in
             print("finished playing")
-            self.triggerServerEventUseCase.emit(event: .PlayerClientFinishedPlaying, data: [id])
+            self?.destroyPlayer()
+            self?.triggerServerEventUseCase.emit(event: .PlayerClientFinishedPlaying, data: [id])
+            self?.invalidateObserver()
         }
+    }
+    
+    private func invalidateObserver() {
+        guard let observer = self.observer else { return }
+        NotificationCenter.default.removeObserver(observer)
+        self.observer = nil
+    }
+    
+    private func destroyPlayer() {
+        self.player?.pause()
+        self.player = nil
     }
     
     struct ReservedSongWrapper: Identifiable {

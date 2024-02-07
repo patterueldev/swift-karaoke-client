@@ -102,7 +102,7 @@ class DefaultAPIManager: APIManager {
         self.decoder = decoder
     }
     
-    private var baseURL: String = "http://Saturday.local:3000/api"
+    private var baseURL: String = "http://Thursday.local:3000/api"
   
     func setBaseURL(_ url: String) throws {
         guard let _ = URL(string: url) else {

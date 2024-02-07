@@ -28,19 +28,21 @@ struct KaraokeView: View {
         HStack(alignment:.top) {
             Spacer()
             VStack(alignment: .leading) {
-                Text("Reserved Songs")
-                    .foregroundStyle(Color.white)
-                    .font(.system(size: 24, weight: .bold))
-                    .padding(.bottom, 10)
                 ForEach(viewModel.reservedSongs) { reservedSong in
-                    Text(reservedSong.reservedSong.song.title)
-                        .foregroundStyle(Color.white)
-                        .font(.system(size: 16, weight: .bold))
+                    HStack {
+                        Text(reservedSong.reservedSong.song.title)
+                            .foregroundStyle(Color.white)
+                            .font(.system(size: 24, weight: .bold))
+                    }
                 }
                 Spacer()
             }
-            .padding(10)
+            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            .background(Color.white.opacity(0.25))
+            .frame(maxWidth: .infinity, maxHeight: .leastNonzeroMagnitude, alignment: .trailing)
         }
+        .background(Color.white.opacity(0.5))
+        .padding(10)
     }
     
 }

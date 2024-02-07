@@ -53,7 +53,7 @@ public class DependencyManager {
     
     lazy var socketManager: SocketManager = {
         var socketManager = SocketManager(
-            socketURL: URL(string: "http://Saturday.local:3000")!,
+            socketURL: URL(string: "http://Thursday.local:3000")!,
             config: [.log(true), .compress]
         )
         return socketManager

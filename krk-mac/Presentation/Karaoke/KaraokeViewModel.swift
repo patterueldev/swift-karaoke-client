@@ -38,7 +38,12 @@ class KaraokeViewModel: ObservableObject {
             print("starting observer")
             for await songs in observeReservedSongs.observe() {
                 print("got updated queue: \(songs.map{$0.song.title})")
-                let result = songs.map({ ReservedSongWrapper($0) })
+                var isFirst = true
+                let result = songs.map({
+                    let reserved = ReservedSongWrapper($0, isPlaying: isFirst)
+                    isFirst = false
+                    return reserved
+                })
                 await MainActor.run {
                     self.reservedSongs = result
                 }
@@ -72,7 +77,7 @@ class KaraokeViewModel: ObservableObject {
         self.invalidateObserver()
         self.destroyPlayer()
         
-        let url = "http://Saturday.local:3000/media/\(id)"
+        let url = "http://Thursday.local:3000/media/\(id)"
         self.player = AVPlayer(url: URL(string: url)!)
         self.player?.play()
         observer = NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { [weak self] _ in
@@ -97,10 +102,12 @@ class KaraokeViewModel: ObservableObject {
     struct ReservedSongWrapper: Identifiable {
         let id: String
         let reservedSong: ReservedSong
+        let isPlaying: Bool
         
-        init(_ song: ReservedSong) {
+        init(_ song: ReservedSong, isPlaying: Bool) {
             self.id = song.identifier
             self.reservedSong = song
+            self.isPlaying = isPlaying
         }
     }
 }

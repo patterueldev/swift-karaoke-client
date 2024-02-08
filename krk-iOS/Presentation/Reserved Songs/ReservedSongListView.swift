@@ -12,8 +12,11 @@ struct ReservedSongListView: View {
     @ObservedObject var viewModel: ReservedSongListViewModel
     @Environment(\.presentationMode) var presentationMode
     
-    init() {
+    var downloadToggler: (() -> Void)?
+    
+    init(downloadToggler: (() -> Void)? = nil) {
         self.viewModel = ReservedSongListViewModel()
+        self.downloadToggler = downloadToggler
     }
     
     var body: some View {
@@ -75,6 +78,17 @@ struct ReservedSongListView: View {
                     
                     HStack {
                         Spacer()
+                        
+                        Button(action: {
+                            downloadToggler?()
+                        }, label: {
+                            Image(systemName: "arrow.down.circle.fill")
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
+                        })
+                        .padding()
+                        .background(.blue.opacity(0.75))
+                        .clipShape(Circle())
                         
                         Button(action: {
                             viewModel.showsSongBook.toggle()

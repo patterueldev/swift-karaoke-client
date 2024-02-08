@@ -10,9 +10,11 @@ import krk_common
 
 struct DownloaderURLView: View {
     @ObservedObject var viewModel: DownloaderURLViewModel
+    let dismisser: (() -> Void)?
     
-    init(manager: DownloaderManager) {
+    init(manager: DownloaderManager, dismisser: (() -> Void)? = nil) {
         self.viewModel = DownloaderURLViewModel(manager: manager)
+        self.dismisser = dismisser
     }
     
     var body: some View {
@@ -45,7 +47,7 @@ struct DownloaderURLView: View {
             }
             .navigationTitle("New Song")
             .navigationDestination(isPresented: $viewModel.navigatesToSongDownloader) {
-                DownloaderView()
+                DownloaderView(dismisser: dismisser)
             }
         }
     }

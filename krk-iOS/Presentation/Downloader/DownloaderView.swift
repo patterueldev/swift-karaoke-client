@@ -12,11 +12,14 @@ struct DownloaderView: View {
     @ObservedObject var viewModel: DownloaderViewModel
     @Environment(\.presentationMode) var presentationMode
     
-    init() {
+    let dismisser: (() -> Void)?
+    
+    init(dismisser: (() -> Void)? = nil) {
         self.viewModel = DownloaderViewModel(
             downloaderManager: DependencyManager.shared.downloaderManager,
             downloadSongUseCase: DependencyManager.shared.downloadSongUseCase
         )
+        self.dismisser = dismisser
     }
     
     var body: some View {
@@ -29,6 +32,8 @@ struct DownloaderView: View {
                         TextField("Enter Title", text: $viewModel.title)
                             .font(.system(size: 18))
                             .padding(.vertical, 8)
+                            .border(Color.black, width: 1)
+                            .padding(4)
                     }
                     HStack {
                         Text("Artist: ")
@@ -36,6 +41,7 @@ struct DownloaderView: View {
                         TextField("Enter Artist", text: $viewModel.artist)
                             .font(.system(size: 18))
                             .padding(.vertical, 8)
+                            .border(Color.black, width: 1)
                     }
                     HStack {
                         Toggle("Contains Lyrics", isOn: $viewModel.containsLyrics)
@@ -52,10 +58,12 @@ struct DownloaderView: View {
                         TextField("Enter Language", text: $viewModel.language)
                             .font(.system(size: 18))
                             .padding(.vertical, 8)
+                            .border(Color.black, width: 1)
+                            .padding(4)
                     }
                     
                     VStack(alignment: .leading) {
-                        HStack { 
+                        HStack {
                             Text("Image: ").fontWeight(.bold)
                             Spacer()
                         }
@@ -74,8 +82,12 @@ struct DownloaderView: View {
                         }
                     }
                     Spacer()
-                    Button(action: { 
-                        viewModel.downloadSong {
+                    Button(action: {
+                        viewModel.downloadSong {}
+                        if let dismisser = dismisser {
+                            dismisser()
+                        } else {
+                            print("No dismisser")
                             self.presentationMode.wrappedValue.dismiss()
                         }
                     }) {

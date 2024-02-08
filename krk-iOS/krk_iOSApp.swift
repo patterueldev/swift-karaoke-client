@@ -24,9 +24,13 @@ struct krk_iOSApp: App {
     // Implement URL handling
     @SceneBuilder var body: some Scene {
         WindowGroup {
-            ReservedSongListView()
+            ReservedSongListView(downloadToggler: {
+                self.isDownloaderPresented = true
+            })
                 .sheet(isPresented: $isDownloaderPresented, content: {
-                    DownloaderURLView(manager: DependencyManager.shared.downloaderManager)
+                    DownloaderURLView(manager: DependencyManager.shared.downloaderManager, dismisser: {
+                        self.isDownloaderPresented = false
+                    })
                 })
                 .onOpenURL(perform: { url in
                     print("URL found: \(url)")

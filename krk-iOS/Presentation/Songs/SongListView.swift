@@ -81,18 +81,18 @@ struct SongListView: View {
                     }.padding(.horizontal, 16)
                 }
             }
+            .searchable(text: $viewModel.searchText, prompt: "Search for Title, Artist")
+            .onChange(of: viewModel.searchText) { _ in
+                viewModel.runSearch()
+            }
+            .onSubmit(of: .search) { viewModel.loadSongs() }
+            .onAppear() {
+                viewModel.setup()
+            }.sheet(isPresented: $viewModel.showsReservedSongList, content: {
+                ReservedSongListView()
+            })
         }
         .background(Color.indigo) // Set the background color of the bottom bar
-        .searchable(text: $viewModel.searchText, prompt: "Search for Title, Artist")
-        .onChange(of: viewModel.searchText) { _ in
-            viewModel.runSearch()
-        }
-        .onSubmit(of: .search) { viewModel.loadSongs() }
-        .onAppear() {
-            viewModel.setup()
-        }.sheet(isPresented: $viewModel.showsReservedSongList, content: {
-            ReservedSongListView()
-        })
     }
     
     func didFinishedSettingUp() {

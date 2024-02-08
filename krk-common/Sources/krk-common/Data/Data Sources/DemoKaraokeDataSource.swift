@@ -31,6 +31,10 @@ class DemoKaraokeDataSource: KaraokeRepository {
         return someSongs
     }
     
+    func deleteSong(_ song: Song) async throws {
+        throw notImplemented()
+    }
+    
     func reserveSong(_ song: Song) async throws {
         let id = UUID().uuidString
         reservedSongs.append(

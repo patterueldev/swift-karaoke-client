@@ -50,6 +50,17 @@ struct RestKaraokeDataSource: KaraokeRepository {
         print("Cancel reservation response \(response)")
     }
     
+    func deleteSong(_ song: Song) async throws {
+        do {
+            let response: GenericResponse<String> = try await apiManager.deleteRequest(
+                path: .deleteSong(id: song.identifier)
+            )
+            print("Delete song response \(response)")
+        } catch {
+            print("Error deleting song: \(error)")
+        }
+    }
+    
     func stopCurrentlyPlaying() async throws {
         let response: GenericResponse<String> = try await apiManager.deleteRequest(
             path: .stopCurrent

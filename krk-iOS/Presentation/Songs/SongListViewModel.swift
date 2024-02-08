@@ -11,11 +11,13 @@ import krk_common
 class SongListViewModel: ObservableObject {
     private let getSongs: GetSongsUseCase
     private let reserveSongs: ReserveSongUseCase
+    private let deleteSong: DeleteSongUseCase
     
     init() {
         let dependencyManager = DependencyManager.shared
         self.getSongs = dependencyManager.getSongsUseCase
         self.reserveSongs = dependencyManager.reserveSongUseCase
+        self.deleteSong = dependencyManager.deleteSongUseCase
     }
     
     @Published var showsConnectToServer: Bool = false
@@ -65,6 +67,23 @@ class SongListViewModel: ObservableObject {
                 guard let song = song else { throw NSError(domain: "SongListViewModel", code: 1, userInfo: nil) }
                 
                 try await reserveSongs.execute(song: song.song)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func deleteSong(identifier: String) {
+        print("Deleting song \(identifier)")
+        
+        Task {
+            do {
+                let song = songs.first { $0.id == identifier }
+                guard let song = song else { throw NSError(domain: "SongListViewModel", code: 1, userInfo: nil) }
+                
+                try await deleteSong.execute(song: song.song)
+                // refresh the list
+                loadSongs()
             } catch {
                 print(error.localizedDescription)
             }

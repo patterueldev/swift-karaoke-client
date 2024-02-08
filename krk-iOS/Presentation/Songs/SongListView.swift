@@ -57,6 +57,23 @@ struct SongListView: View {
                         
                         })
                     }
+                    .contextMenu(menuItems: {
+                        // reserve
+                        Button(action: {
+                            viewModel.reserveSong(identifier: song.id)
+                        }, label: {
+                            Text("Reserve")
+                            Image(systemName: "mic")
+                        })
+                        // delete
+                        Button(action: {
+                            viewModel.deleteSong(identifier: song.id)
+                        }, label: {
+                            Text("Delete")
+                                .foregroundColor(.red)
+                            Image(systemName: "trash")
+                        })
+                    })
                 }
                 .scrollContentBackground(.hidden)
                 .refreshable(action: {

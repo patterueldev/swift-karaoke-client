@@ -26,8 +26,13 @@ struct KaraokeView: View {
     
     func buildReservedSongView() -> some View {
         HStack(alignment:.top) {
+            // Reserved songs: $number
             Spacer()
             VStack(alignment: .leading) {
+                Text("Reserved Songs: \(viewModel.reservedSongs.count)")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundStyle(Color.white)
+                Spacer()
                 ForEach(viewModel.reservedSongs) { reservedSong in
                     HStack {
                         Text(reservedSong.reservedSong.song.title)
@@ -38,7 +43,7 @@ struct KaraokeView: View {
                 Spacer()
             }
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-            .background(Color.white.opacity(0.25))
+            .background(Color.black.opacity(0.25))
             .frame(maxWidth: .infinity, maxHeight: .leastNonzeroMagnitude, alignment: .trailing)
         }
         .background(Color.white.opacity(0.5))

@@ -191,6 +191,7 @@ class DefaultAPIManager: APIManager {
 enum APIPath {
     case index
     case songs
+    case deleteSong(id: String)
     case reserve(id: String) // api/songs/item/:id/queue
     case reserved // api/queue
     case cancelReservation(id: String) // api/queue/item/:id/cancel
@@ -204,6 +205,8 @@ enum APIPath {
             return ""
         case .songs:
             return "songs"
+        case .deleteSong(let id):
+            return "songs/item/\(id)/remove"
         case .reserve(let id):
             return "songs/item/\(id)/queue"
         case .reserved:

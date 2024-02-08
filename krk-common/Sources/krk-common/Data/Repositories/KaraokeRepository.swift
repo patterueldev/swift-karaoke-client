@@ -13,6 +13,7 @@ protocol KaraokeRepository {
     func getReservedSongs() async throws -> [ReservedSong]
     func playNext() async throws
     func cancelReservation(_ song: ReservedSong) async throws
+    func deleteSong(_ song: Song) async throws
     func stopCurrentlyPlaying() async throws
     func identifySong(from url: String) async throws -> Song
     func downloadSong(_ song: DownloadSongParameter) async throws -> Song
